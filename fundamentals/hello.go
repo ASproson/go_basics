@@ -2,17 +2,29 @@ package main
 
 import "fmt"
 
-const hello = "Hello, "
+const englishHelloPrefix = "Hello, "
+const spanishHelloPrefix = "Hola, "
+const frenchHelloPrefix = "Bonjour, "
+const spanish = "Spanish"
+const french = "French"
 
-func Hello(name string) string {
+func Hello(name string, language string) string {
 	if name == "" {
-		return "Hello, World"
+		name = "World"
 	}
-	return hello + name
+
+	if language == spanish {
+		return spanishHelloPrefix + name
+	}
+
+	if language == french {
+		return frenchHelloPrefix + name
+	}
+	return englishHelloPrefix + name
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
 
 // Go programs will have a main package defined with a main func inside it
