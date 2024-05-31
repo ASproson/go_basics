@@ -9,14 +9,14 @@ func TestHello(t *testing.T) {
 		assertCorrectMessage(t, got, want)
 	})
 	t.Run("say 'Hello, World' when an empty string is passed", func(t *testing.T) {
-		got := Hello("")
+		got := Hello(" ")
 		want := "Hello, World"
 		assertCorrectMessage(t, got, want)
 	})
 }
 
 func assertCorrectMessage(t testing.TB, got, want string) {
-	t.Helper()
+	t.Helper() // Informs compilter this is a helper, error messages now report func error line rather than this func
 	if got != want {
 		t.Errorf("got %q want %q", got, want)
 	}
